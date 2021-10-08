@@ -1,0 +1,186 @@
+:root {
+  --ff-sans: "Josefin Sans", sans-serif;
+  --base-font: 1.6rem;
+  --fw-normal: 400;
+  --fw-bold: 700;
+  /* --img-bg: url("../assets/images/bg-desktop-dark.jpg"); */
+  /*   --clr-primary: hsl(0, 0%, 98%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-page-bg: hsl(235, 21%, 11%);
+  --clr-card-bg: hsl(235, 24%, 19%);
+  --clr-blue: hsl(220, 98%, 61%);
+  
+  
+  --clr-gb-1-h: hsl(236, 33%, 92%);
+  --clr-gb-2: hsl(234, 39%, 75%);
+  --clr-gb-3: hsl(234, 11%, 52%);
+  --clr-gb-4: hsl(237, 12%, 36%);
+  --clr-gb-5: hsl(233, 14%, 35%);
+  --clr-gb-6: hsl(235, 19%, 24%);
+  --clr-box-shadow: hsl(0, 0%, 0%, 0.1); */
+  /*   --img-bg: url(../assets/images/bg-desktop-light.jpg); */
+  --clr-primary: hsl(243, 12%, 30%);
+  --clr-page-bg: hsl(0, 0%, 98%);
+  --clr-card-bg: hsl(0, 0%, 100%);
+  --clr-gb-1: hsl(240, 8%, 24%);
+  --clr-gb-2: hsl(243, 12%, 30%);
+  --clr-gb-3: hsl(252, 6%, 83%);
+  --clr-gb-4: hsl(237, 10%, 64%);
+  --clr-gb-5: hsl(252, 9%, 73%);
+  --clr-gb-6: hsl(252, 21%, 94%);
+  --clr-green: hsl(192, 100%, 67%);
+  --clr-pink: hsl(280, 87%, 65%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  font-family: var(--ff-sans);
+  background: var(--clr-page-bg) url(/images/bg-desktop-light.jpg) no-repeat 0%
+    0% / 100vw 30rem;
+  font-size: 1.8rem;
+}
+header {
+  color: var(--clr-card-bg);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4.1rem;
+}
+header h1 {
+  font-size: 3.9rem;
+  letter-spacing: 1.6rem;
+}
+header .theme-switcher {
+  background-color: transparent;
+  border: none;
+}
+.container {
+  width: 100%;
+  max-width: 54rem;
+  margin-top: 7.8rem;
+}
+.card {
+  background-color: var(--clr-card-bg);
+  height: 6.4rem;
+  border-radius: 5px;
+  padding: 0 2rem 0 2.4rem;
+}
+.card input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.8rem;
+}
+.cb-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-card {
+  margin-bottom: 2.4rem;
+  display: flex;
+  gap: 2rem;
+}
+.add-to-list-btn {
+  color: var(--clr-gb-3);
+  background-color: transparent;
+  font-size: var(--base-font);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid var(--clr-gb-3);
+  border-radius: 50%;
+}
+
+/* Todo list  */
+ul {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.todo-list li {
+  border-top: 0.2rem var(--clr-gb-6) solid;
+}
+.todo-list .card {
+  border-radius: 0;
+}
+.status-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.2rem var(--clr-gb-6) solid;
+  border-radius: 0;
+  height: 5rem;
+  color: var(--clr-gb-4);
+}
+.status-card .item-left span {
+  font-size: 1.3333rem;
+}
+.status-card button {
+  background-color: transparent;
+  border: none;
+  font-family: var(--ff-sans);
+  cursor: pointer;
+  padding-left: 20px;
+  color: var(--clr-gb-4);
+}
+.status-card .filter-btns button {
+  font-weight: var(--fw-bold);
+}
+footer {
+  margin: 5.8rem 0;
+  text-align: center;
+  color: var(--clr-gb-4);
+  font-size: 1.4rem;
+}
+.todo-list .cb-container {
+  color: var(--clr-gb-3);
+  background-color: transparent;
+  font-size: var(--base-font);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid var(--clr-gb-3);
+  border-radius: 50%;
+  position: relative;
+}
+.todo-list .card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.todo-list .card p {
+  color: var(--clr-primary);
+  flex: 1;
+}
+.card .cb-container .check-input {
+  transform: scale(1.8);
+  opacity: 0;
+}
+.card .cb-container .check-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.todo-list .cb-container .check-input:checked + .check-icon {
+  background: url("/images/icon-check.svg"),
+    linear-gradient(45deg, var(--clr-green), var(--clr-pink));
+  background-repeat: no-repeat;
+  background-position: center;
+}
