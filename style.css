@@ -8,10 +8,10 @@
   --clr-white: hsl(0, 0%, 100%);
   --clr-page-bg: hsl(235, 21%, 11%);
   --clr-card-bg: hsl(235, 24%, 19%);
-  --clr-blue: hsl(220, 98%, 61%);
   
   
-  --clr-gb-1-h: hsl(236, 33%, 92%);
+  
+ 
   --clr-gb-2: hsl(234, 39%, 75%);
   --clr-gb-3: hsl(234, 11%, 52%);
   --clr-gb-4: hsl(237, 12%, 36%);
@@ -20,7 +20,7 @@
   --clr-box-shadow: hsl(0, 0%, 0%, 0.1); */
   /*   --img-bg: url(../assets/images/bg-desktop-light.jpg); */
   --clr-primary: hsl(243, 12%, 30%);
-  --clr-page-bg: hsl(0, 0%, 98%);
+  --clr-page-bg: hsl(240, 11%, 96%);
   --clr-card-bg: hsl(0, 0%, 100%);
   --clr-gb-1: hsl(240, 8%, 24%);
   --clr-gb-2: hsl(243, 12%, 30%);
@@ -30,6 +30,8 @@
   --clr-gb-6: hsl(252, 21%, 94%);
   --clr-green: hsl(192, 100%, 67%);
   --clr-pink: hsl(280, 87%, 65%);
+  --clr-gb-1-h: hsl(236, 33%, 92%);
+  --clr-blue: hsl(220, 98%, 61%);
 }
 
 * {
@@ -48,6 +50,11 @@ body {
     0% / 100vw 30rem;
   font-size: 1.8rem;
 }
+.container {
+  width: 100%;
+  max-width: 54rem;
+  margin-top: 7.8rem;
+}
 header {
   color: var(--clr-card-bg);
   display: flex;
@@ -62,22 +69,18 @@ header .theme-switcher {
   background-color: transparent;
   border: none;
 }
-.container {
-  width: 100%;
-  max-width: 54rem;
-  margin-top: 7.8rem;
-}
+
 .card {
   background-color: var(--clr-card-bg);
-  height: 6.4rem;
   border-radius: 5px;
-  padding: 0 2rem 0 2.4rem;
+  padding: 2rem 2rem;
 }
 .card input {
   width: 100%;
   border: none;
   outline: none;
   font-size: 1.8rem;
+  font-family: var(--ff-sans);
 }
 .cb-container {
   display: flex;
@@ -101,14 +104,19 @@ header .theme-switcher {
   border: 0.1rem solid var(--clr-gb-3);
   border-radius: 50%;
 }
-
+.delete-hover {
+  display: none;
+}
+.todo-list .card:hover > .delete-hover {
+  display: flex;
+}
 /* Todo list  */
 ul {
   display: flex;
   flex-direction: column-reverse;
 }
 .todo-list li {
-  border-top: 0.2rem var(--clr-gb-6) solid;
+  border-top: 0.2rem var(--clr-page-bg) solid;
 }
 .todo-list .card {
   border-radius: 0;
@@ -118,8 +126,8 @@ ul {
   justify-content: space-between;
   align-items: center;
   border-top: 0.2rem var(--clr-gb-6) solid;
-  border-radius: 0;
-  height: 5rem;
+  border-radius: 0 0 5px 5px;
+  padding: 1.4rem 2rem;
   color: var(--clr-gb-4);
 }
 .status-card .item-left span {
@@ -130,12 +138,22 @@ ul {
   border: none;
   font-family: var(--ff-sans);
   cursor: pointer;
-  padding-left: 20px;
+
   color: var(--clr-gb-4);
+}
+.filter-btns {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 .status-card .filter-btns button {
   font-weight: var(--fw-bold);
 }
+.status-card button:hover {
+  color: var(--clr-primary);
+}
+
+
 footer {
   margin: 5.8rem 0;
   text-align: center;
@@ -164,10 +182,13 @@ footer {
 .todo-list .card p {
   color: var(--clr-primary);
   flex: 1;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 .card .cb-container .check-input {
   transform: scale(1.8);
   opacity: 0;
+  cursor: pointer;
 }
 .card .cb-container .check-icon {
   position: absolute;
@@ -183,4 +204,114 @@ footer {
     linear-gradient(45deg, var(--clr-green), var(--clr-pink));
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-card-bg);
+  height: 5rem;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 0 2rem 0 2.4rem;
+}
+/* Active class */
+.todo-list .completed p {
+  text-decoration: line-through;
+  color: var(--clr-gb-1-h);
+}
+.filter-btns .btn-on {
+  color: var(--clr-blue);
+}
+
+@media screen and (max-width: 780px) {
+  body {
+    background: var(--clr-page-bg) url(/images/bg-mobile-light.jpg) no-repeat 0%
+      0% / 100vw 30rem;
+    font-size: 1.4rem;
+  }
+  .container {
+    width: 100%;
+    max-width: 54rem;
+    margin-top: 4.8rem;
+    padding: 0 2.8rem;
+  }
+  .card {
+    background-color: var(--clr-card-bg);
+    padding: 1.7rem 2rem;
+  }
+  .card input {
+    font-size: 1.4rem;
+  }
+  .input-card {
+    margin-bottom: 2.4rem;
+    display: flex;
+    gap: 1.4rem;
+  }
+  .add-to-list-btn {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+  .todo-list .cb-container {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+  .todo-list .card {
+    gap: 1.4rem;
+  }
+  header h1 {
+    font-size: 2.4rem;
+    letter-spacing: 0.9rem;
+  }
+  .theme-switcher img {
+    width: 2.2rem;
+  }
+  .todo-list .card p {
+    font-size: 1.4rem;
+  }
+  .delete-hover {
+    display: flex;
+  }
+  .delete-hover img {
+    width: 1.2rem;
+  }
+
+  .status-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5rem 2rem;
+    position: relative;
+  }
+  .status-card .filter-btns {
+    grid-row: 2/3;
+    grid-column: 1/3;
+    justify-content: space-around;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .status-card .filter-btns::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2rem;
+    background-color: var(--clr-page-bg);
+    top: 5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .item-left {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+  }
+
+  .clear-btn {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+  }
 }

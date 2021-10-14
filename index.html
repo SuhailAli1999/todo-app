@@ -6,12 +6,6 @@
     <link rel="stylesheet" href="style.css" />
 
     <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
@@ -19,12 +13,6 @@
   </head>
 
   <body>
-    <!--     <img
-      src="/design/desktop-design-light.jpg"
-      alt=""
-      style="z-index: -10; opacity: 0.5; position: absolute"
-    /> --><!-- dont forget remove the whoel img  -->
-
     <div class="container">
       <header>
         <h1>TODO</h1>
@@ -35,43 +23,35 @@
       <main>
         <div class="card input-card">
           <div class="cb-container">
-            <button class="add-to-list-btn" id="add-to-list-btn">+</button>
+            <button class="add-to-list-btn" id="add-to-list-btn"></button>
           </div>
           <input
             type="text"
             class="txt-input"
-            placeholder="Create a new todo..."
+            placeholder="Add a task"
             spellcheck="false"
             autocomplete="off"
             id="user-input"
           />
         </div>
 
-        <ul class="todo-list" id="todo-list">
-          <li class="card">
-            <div class="cb-container">
-              <input class="check-input" id="check-input" type="checkbox" />
-              <span class="check-icon"></span>
-            </div>
-            <p id="user-input-text">Jog around the oark 3x</p>
-            <div class="delate-btn">
-              <img src="/images/icon-cross.svg" alt="" />
-            </div>
+        <ul class="todo-list">
+          <li class="empty">
+            <span class="no-tasks-message">No tasks to show</span>
           </li>
         </ul>
 
         <div class="card status-card">
           <div class="item-left">
-            <span>5 items left</span>
+            <span>0 items left</span>
           </div>
           <div class="filter-btns">
-            <button class="all">All</button>
-            <button class="active">Active</button>
-            <button class="completed">Completed</button>
+            <button id="all" class="btn-on">All</button>
+            <button id="active">Active</button>
+            <button id="completed">Completed</button>
           </div>
-          <div class="clear-btn">
-            <button>Clear Completed</button>
-          </div>
+
+          <button class="clear-btn">Clear Completed</button>
         </div>
 
         <footer>
