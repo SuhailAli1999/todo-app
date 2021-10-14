@@ -3,35 +3,33 @@
   --base-font: 1.6rem;
   --fw-normal: 400;
   --fw-bold: 700;
-  /* --img-bg: url("../assets/images/bg-desktop-dark.jpg"); */
-  /*   --clr-primary: hsl(0, 0%, 98%);
+  --img-bg: url("images/bg-desktop-light.jpg");
+  --img-sm: url("images/bg-mobile-light.jpg");
+  --clr-white: hsl(0, 0%, 100%); /* logo  */
+  --clr-primary: hsl(243, 12%, 30%); /*  card p and card status hover  */
+  --clr-page-bg: hsl(240, 11%, 96%); /* backround  */
+  --clr-card-bg: hsl(0, 0%, 100%); /* card  */
+  --clr-gb-1: hsl(240, 8%, 24%);
+  --clr-gb-3: hsl(252, 6%, 83%); /* cb-container */
+  --clr-gb-4: hsl(237, 10%, 64%); /* status card color */
+  --clr-gb-6: hsl(252, 21%, 94%); /* li border to */
+  --clr-green: hsl(192, 100%, 67%);
+  --clr-pink: hsl(280, 87%, 65%);
+  --clr-gb-1-line: hsl(235, 16%, 85%); /* line through */
+  --clr-blue: hsl(220, 98%, 61%);
+}
+html[data-theme="dark"] {
+  --img-bg: url("images/bg-desktop-dark.jpg");
+  --img-sm: url("images/bg-mobile-dark.jpg");
+  --clr-primary: hsl(235, 38%, 87%);
   --clr-white: hsl(0, 0%, 100%);
   --clr-page-bg: hsl(235, 21%, 11%);
   --clr-card-bg: hsl(235, 24%, 19%);
-  
-  
-  
- 
-  --clr-gb-2: hsl(234, 39%, 75%);
   --clr-gb-3: hsl(234, 11%, 52%);
   --clr-gb-4: hsl(237, 12%, 36%);
-  --clr-gb-5: hsl(233, 14%, 35%);
+  --clr-gb-1-line: hsl(233, 14%, 35%);
   --clr-gb-6: hsl(235, 19%, 24%);
-  --clr-box-shadow: hsl(0, 0%, 0%, 0.1); */
-  /*   --img-bg: url(../assets/images/bg-desktop-light.jpg); */
-  --clr-primary: hsl(243, 12%, 30%);
-  --clr-page-bg: hsl(240, 11%, 96%);
-  --clr-card-bg: hsl(0, 0%, 100%);
-  --clr-gb-1: hsl(240, 8%, 24%);
-  --clr-gb-2: hsl(243, 12%, 30%);
-  --clr-gb-3: hsl(252, 6%, 83%);
-  --clr-gb-4: hsl(237, 10%, 64%);
-  --clr-gb-5: hsl(252, 9%, 73%);
-  --clr-gb-6: hsl(252, 21%, 94%);
-  --clr-green: hsl(192, 100%, 67%);
-  --clr-pink: hsl(280, 87%, 65%);
-  --clr-gb-1-h: hsl(236, 33%, 92%);
-  --clr-blue: hsl(220, 98%, 61%);
+  --clr-box-shadow: hsl(0, 0%, 0%, 0.1);
 }
 
 * {
@@ -46,8 +44,7 @@ body {
   display: flex;
   justify-content: center;
   font-family: var(--ff-sans);
-  background: var(--clr-page-bg) url(images/bg-desktop-light.jpg) no-repeat 0%
-    0% / 100vw 30rem;
+  background: var(--clr-page-bg) var(--img-bg) no-repeat 0% 0% / 100vw 30rem;
   font-size: 1.8rem;
 }
 .container {
@@ -62,6 +59,7 @@ header {
   margin-bottom: 4.1rem;
 }
 header h1 {
+  color: var(--clr-white);
   font-size: 3.9rem;
   letter-spacing: 1.6rem;
 }
@@ -81,7 +79,10 @@ header .theme-switcher {
   outline: none;
   font-size: 1.8rem;
   font-family: var(--ff-sans);
+  background-color: var(--clr-card-bg);
+  color: var(--clr-primary);
 }
+
 .cb-container {
   display: flex;
   align-items: center;
@@ -116,7 +117,7 @@ ul {
   flex-direction: column-reverse;
 }
 .todo-list li {
-  border-top: 0.2rem var(--clr-page-bg) solid;
+  border-top: 0.2rem var(--clr-gb-6) solid;
 }
 .todo-list .card {
   border-radius: 0;
@@ -149,10 +150,6 @@ ul {
 .status-card .filter-btns button {
   font-weight: var(--fw-bold);
 }
-.status-card button:hover {
-  color: var(--clr-primary);
-}
-
 
 footer {
   margin: 5.8rem 0;
@@ -200,7 +197,7 @@ footer {
   border-radius: inherit;
 }
 .todo-list .cb-container .check-input:checked + .check-icon {
-  background: url("/images/icon-check.svg"),
+  background: url("images/icon-check.svg"),
     linear-gradient(45deg, var(--clr-green), var(--clr-pink));
   background-repeat: no-repeat;
   background-position: center;
@@ -215,11 +212,12 @@ footer {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   padding: 0 2rem 0 2.4rem;
+  color: var(--clr-primary);
 }
 /* Active class */
 .todo-list .completed p {
   text-decoration: line-through;
-  color: var(--clr-gb-1-h);
+  color: var(--clr-gb-1-line);
 }
 .filter-btns .btn-on {
   color: var(--clr-blue);
@@ -227,8 +225,7 @@ footer {
 
 @media screen and (max-width: 780px) {
   body {
-    background: var(--clr-page-bg) url(images/bg-mobile-light.jpg) no-repeat 0%
-      0% / 100vw 30rem;
+    background: var(--clr-page-bg) var(--img-sm) no-repeat 0% 0% / 100vw 30rem;
     font-size: 1.4rem;
   }
   .container {
@@ -283,8 +280,10 @@ footer {
     grid-template-rows: 1fr 1fr;
     gap: 5rem 2rem;
     position: relative;
+    /* padding: 1.7rem 2rem 0.8rem 2rem; */
   }
   .status-card .filter-btns {
+    padding-top: 0.6rem;
     grid-row: 2/3;
     grid-column: 1/3;
     justify-content: space-around;
@@ -313,5 +312,10 @@ footer {
     display: flex;
     justify-content: flex-end;
     font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 780px) {
+  .status-card button:hover {
+    color: var(--clr-primary);
   }
 }

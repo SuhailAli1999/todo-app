@@ -16,6 +16,23 @@ document.querySelector(".filter-btns").addEventListener("click", filter);
 //Clear completed
 document.querySelector(".clear-btn").addEventListener("click", clearCompleted);
 
+//Theme switcher
+document.getElementById("theme-switcher").addEventListener("click", () => {
+  if (document.querySelector("html").hasAttribute("data-theme", "dark")) {
+    document.getElementById(
+      "theme-switcher"
+    ).innerHTML = ` <img src="images/icon-moon.svg" alt="moon" />`;
+    document.querySelector("html").removeAttribute("data-theme");
+    document.querySelector("body").style.transition = ".6s";
+  } else {
+    document.getElementById(
+      "theme-switcher"
+    ).innerHTML = ` <img src="images/icon-sun.svg" alt="sun" />`;
+    document.querySelector("html").setAttribute("data-theme", "dark");
+    document.querySelector("body").style.transition = ".6s";
+  }
+});
+
 function addCardToTheList(e) {
   let newCard = ` 
     <li class="card active">
@@ -34,6 +51,8 @@ function addCardToTheList(e) {
     todoList.innerHTML += newCard;
     userInput.value = "";
     document.querySelector(".empty").style.display = "none";
+
+    document.getElementById("all").click();
     checkLeft();
   }
 }
@@ -79,7 +98,7 @@ function filter(e) {
       document.getElementById("completed").classList.remove("btn-on");
       document.getElementById("active").classList.remove("btn-on");
       document.getElementById(e.target.id).classList.add("btn-on");
-      
+
       for (card of todoList.children) {
         card.style.display = "flex";
       }
@@ -140,5 +159,4 @@ function clearCompleted(e) {
       todoList.children[i].remove();
     }
   }
-  noTaskMessage("need fix");
 }
