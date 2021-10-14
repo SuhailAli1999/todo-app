@@ -46,7 +46,7 @@ body {
   display: flex;
   justify-content: center;
   font-family: var(--ff-sans);
-  background: var(--clr-page-bg) url(/images/bg-desktop-light.jpg) no-repeat 0%
+  background: var(--clr-page-bg) url(images/bg-desktop-light.jpg) no-repeat 0%
     0% / 100vw 30rem;
   font-size: 1.8rem;
 }
@@ -227,7 +227,7 @@ footer {
 
 @media screen and (max-width: 780px) {
   body {
-    background: var(--clr-page-bg) url(/images/bg-mobile-light.jpg) no-repeat 0%
+    background: var(--clr-page-bg) url(images/bg-mobile-light.jpg) no-repeat 0%
       0% / 100vw 30rem;
     font-size: 1.4rem;
   }
