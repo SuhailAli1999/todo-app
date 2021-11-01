@@ -12,22 +12,19 @@ todoList.addEventListener("click", checkAndDeleteBtns);
 
 // filter cards
 document.querySelector(".filter-btns").addEventListener("click", filter);
-
 //Clear completed
 document.querySelector(".clear-btn").addEventListener("click", clearCompleted);
 
 //Theme switcher
 document.getElementById("theme-switcher").addEventListener("click", () => {
   if (document.querySelector("html").hasAttribute("data-theme", "dark")) {
-    document.getElementById(
-      "theme-switcher"
-    ).innerHTML = ` <img src="images/icon-moon.svg" alt="moon" />`;
+    console.log("if")
+     document.getElementById("theme-switcher").innerHTML = ` <img src="images/icon-moon.svg" alt="moon" />`;
     document.querySelector("html").removeAttribute("data-theme");
     document.querySelector("body").style.transition = ".6s";
   } else {
-    document.getElementById(
-      "theme-switcher"
-    ).innerHTML = ` <img src="images/icon-sun.svg" alt="sun" />`;
+    console.log("else")
+    document.getElementById("theme-switcher").innerHTML = ` <img src="images/icon-sun.svg" alt="sun" />`;
     document.querySelector("html").setAttribute("data-theme", "dark");
     document.querySelector("body").style.transition = ".6s";
   }
@@ -42,7 +39,7 @@ function addCardToTheList(e) {
     </div>
     <p id="user-input-text">${userInput.value}</p>
     <div class="delete-hover">
-      <img class="delete-btn" src="/images/icon-cross.svg" alt="" />
+      <img class="delete-btn" src="images/icon-cross.svg" alt="" />
     </div>
   </li>`;
   if (userInput.value == "") {
