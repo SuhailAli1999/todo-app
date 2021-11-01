@@ -8,4 +8,6 @@
 - Clear all completed todos
 - Toggle light and dark mode
 - Drag and drop to reorder items on the list *COMING SOON
-# Demo Prefo 
+
+# Demo Preview
+https://suhailali1999.github.io/todo-app
