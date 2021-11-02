@@ -1,6 +1,6 @@
 # Todo app 
 
-# Features
+## Features
 - Add new todos to the list
 - Mark todos as complete
 - Delete todos from the list
@@ -9,5 +9,5 @@
 - Toggle light and dark mode
 - Drag and drop to reorder items on the list *COMING SOON
 
-# Demo Preview
+## Demo Preview
 https://suhailali1999.github.io/todo-app
